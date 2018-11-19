@@ -1,10 +1,13 @@
 package com.w77996.product.service.impl;
 
 
+import com.w77996.product.dataobject.DecreaseStockInput;
 import com.w77996.product.dataobject.ProductInfo;
+import com.w77996.product.dataobject.ProductInfoOutput;
 import com.w77996.product.enums.ProductStatusEnum;
 import com.w77996.product.repository.ProductInfoRepository;
 import com.w77996.product.service.ProductService;
+import com.w77996.product.utils.JsonUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,19 +33,19 @@ public class ProductServiceImpl implements ProductService {
         return productInfoRepository.findByProductStatus(ProductStatusEnum.UP.getCode());
     }
 
-//    @Override
-//    public List<ProductInfoOutput> findList(List<String> productIdList) {
-//        return productInfoRepository.findByProductIdIn(productIdList).stream()
-//                .map(e -> {
-//                    ProductInfoOutput output = new ProductInfoOutput();
-//                    BeanUtils.copyProperties(e, output);
-//                    return output;
-//                })
-//                .collect(Collectors.toList());
-//    }
-//
-//    @Override
-//    public void decreaseStock(List<DecreaseStockInput> decreaseStockInputList) {
+    @Override
+    public List<ProductInfoOutput> findList(List<String> productIdList) {
+        return productInfoRepository.findByProductIdIn(productIdList).stream()
+                .map(e -> {
+                    ProductInfoOutput output = new ProductInfoOutput();
+                    BeanUtils.copyProperties(e, output);
+                    return output;
+                })
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void decreaseStock(List<DecreaseStockInput> decreaseStockInputList) {
 //        List<ProductInfo> productInfoList = decreaseStockProcess(decreaseStockInputList);
 //
 //        //发送mq消息
@@ -52,8 +55,8 @@ public class ProductServiceImpl implements ProductService {
 //            return output;
 //        }).collect(Collectors.toList());
 //        amqpTemplate.convertAndSend("productInfo", JsonUtil.toJson(productInfoOutputList));
-//
-//    }
+
+    }
 //
 //    @Transactional
 //    public List<ProductInfo> decreaseStockProcess(List<DecreaseStockInput> decreaseStockInputList) {

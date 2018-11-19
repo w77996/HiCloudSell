@@ -5,14 +5,13 @@ import com.w77996.product.VO.ProductVO;
 import com.w77996.product.VO.ResultVO;
 import com.w77996.product.dataobject.ProductCategory;
 import com.w77996.product.dataobject.ProductInfo;
+import com.w77996.product.dataobject.ProductInfoOutput;
 import com.w77996.product.service.CategoryService;
 import com.w77996.product.service.ProductService;
 import com.w77996.product.utils.ResultVOUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,5 +65,15 @@ public class ProductController {
         }
 
         return ResultVOUtil.success(productVOList);
+    }
+
+    /**
+     * 获取商品列表(给订单服务用的)
+     * @param productIdList
+     * @return
+     */
+    @PostMapping("/listForOrder")
+    public List<ProductInfoOutput> listForOrder(@RequestBody List<String> productIdList) {
+        return productService.findList(productIdList);
     }
 }
