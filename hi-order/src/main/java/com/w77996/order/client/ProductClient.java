@@ -2,6 +2,7 @@ package com.w77996.order.client;
 
 import com.w77996.order.dataobject.DecreaseStockInput;
 import com.w77996.order.dataobject.ProductInfo;
+import com.w77996.order.dataobject.ProductInfoOutput;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,5 +21,5 @@ public interface ProductClient {
     void decreaseStock(@RequestBody List<DecreaseStockInput> decreaseStockInputList);
 
     @PostMapping("/listForOrder")
-    List<ProductInfo> listForOrder(@RequestBody List<String> productList);
+    List<ProductInfoOutput> listForOrder(@RequestBody List<String> productList);
 }
