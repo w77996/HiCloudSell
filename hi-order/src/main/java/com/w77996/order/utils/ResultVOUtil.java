@@ -1,11 +1,8 @@
 package com.w77996.order.utils;
 
-import com.imooc.order.VO.ResultVO;
 
-/**
- * Created by 廖师兄
- * 2017-12-10 18:03
- */
+import com.w77996.order.VO.ResultVO;
+
 public class ResultVOUtil {
 
     public static ResultVO success(Object object) {

@@ -2,6 +2,7 @@ package com.w77996.order.controller;
 
 import com.w77996.order.client.ProductClient;
 import com.w77996.order.dataobject.ProductInfo;
+import com.w77996.order.dataobject.ProductInfoOutput;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +26,7 @@ public class ClientController {
 
     @GetMapping("/getProductList")
     public String getProductList(){
-        List<ProductInfo> productInfoList = productClient.listForOrder(Arrays.asList("1"));
+        List<ProductInfoOutput> productInfoList = productClient.listForOrder(Arrays.asList("1"));
         return "ok";
     }
 }
