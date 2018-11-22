@@ -2,12 +2,8 @@ spring:
   application:
     name: hi-order
   cloud:
-    config:
-      discovery:
-        enabled: true
-        service-id: HI-CONFIG
-      profiles: test
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
+      config:
+        uri: http://localhost:9991
+        fail-fast: true
+  profiles:
+       active: test

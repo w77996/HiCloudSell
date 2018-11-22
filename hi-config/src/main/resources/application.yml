@@ -4,9 +4,10 @@ spring:
   cloud:
     config:
       server:
-        git:
-          uri: https://gitee.com/w77996/respo
-          basedir: /Users/admin/code/myProjects/java/imooc/SpringCloud_Sell/config/basedir
+        native:
+          search-locations: classpath:/shared
+  profiles:
+     active: native
 eureka:
   client:
     service-url:
