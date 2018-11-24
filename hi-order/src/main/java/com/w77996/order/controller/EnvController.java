@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/env")
 public class EnvController {
 
-    @Value("${env}")
+    @Value("${evn}")
     private String env;
 
     @GetMapping("/print")

@@ -3,7 +3,7 @@ spring:
     name: hi-order
   cloud:
       config:
-        uri: http://localhost:9991
+        uri: http://localhost:9991/
         fail-fast: true
   profiles:
        active: test
