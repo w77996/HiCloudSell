@@ -7,3 +7,11 @@ spring:
         fail-fast: true
   profiles:
        active: test
+  rabbitmq:
+    host: 119.23.167.190
+    username: guest
+    password: guest
+    port: 5672
+  redis:
+    host: 119.23.75.136
+    port: 6379
